@@ -32,7 +32,7 @@ O SSH, ou Secure Shell, é um protocolo de comunicação entre dois dispositivos
 
 O HTTP, ou Hypertext Transfer Protocol, é um protocolo de comunicação utilizado para transferir dados pela World Wide Web. Ele é o principal protocolo utilizado para acessar e enviar informações em páginas da web.
 
-Sabendo disso, nós conseguimos ver que temos uma página web aberta naquele IP, então colocamos ele na barra de pesquisa e então... KATCHAU!, temos um site.png.
+Sabendo disso, nós conseguimos ver que temos uma página web aberta naquele IP, então colocamos ele na barra de pesquisa e então... KATCHAU!, temos um site.
 
 ![](images/image4.png)
 
@@ -76,15 +76,15 @@ Opa, achamos algo, mas não sabemos se iremos utilizar, mas sempre é bom guarda
 
 Olhamos tudo e percebemos que precisamos de um login e uma senha, pode ser que a palavra achada no robots.txt seja ou o login ou a senha. Como não encontramos mais nada na parte visual, iremos dar uma inspecionada no código por trás das páginas.
 
-Voltando ao index.html, não conseguimos muitas informações na parte visual, então vamos dar uma inspecionada nele usando o F12 no Chrome e então, BINGO! Temos um login.png. - R1ckRul3s
+Voltando ao index.html, não conseguimos muitas informações na parte visual, então vamos dar uma inspecionada nele usando o F12 no Chrome e então, BINGO! Temos um login. - R1ckRul3s
 
 ![](images/image11.png)
 
-Após olharmos as outras, não encontramos nada.... mas peraí, nós temos aquela palavra esquisita colocada no robots.txt, então entramos no /login.php e colocamos o login: R1ckRul3s e a senha: Wubbalubbadubdub e então KATCHAU!! Conseguimos entrar.png.
+Após olharmos as outras, não encontramos nada.... mas peraí, nós temos aquela palavra esquisita colocada no robots.txt, então entramos no /login.php e colocamos o login: R1ckRul3s e a senha: Wubbalubbadubdub e então KATCHAU!! Conseguimos entrar.
 
 ![](images/image12.png)
 
-Após entrarmos, podemos ver que temos um tal de Command Panel, poderia ser que fosse algum painel de administrador para executar comandos, então vamos tentar executar algo nele. Usei um comando básico do Linux, o ls, que serve para listar os arquivos existentes no diretório atual e então.... BINGO! Conseguimos mais URLs.png.
+Após entrarmos, podemos ver que temos um tal de Command Panel, poderia ser que fosse algum painel de administrador para executar comandos, então vamos tentar executar algo nele. Usei um comando básico do Linux, o ls, que serve para listar os arquivos existentes no diretório atual e então.... BINGO! Conseguimos mais URLs.
 
 ![](images/image13.png)
 
@@ -138,7 +138,7 @@ Agora, com tudo pronto, iremos colocar o comando do reverse shell no painel de c
 
 ![](images/image25.png)
 
-Após clicarmos em "Execute", BINGO!! Estamos dentro.png.
+Após clicarmos em "Execute", BINGO!! Estamos dentro.
 
 ![](images/image26.png)
 
@@ -154,7 +154,7 @@ Após olharmos, podemos ver que não tem nenhuma informação que não já não 
 
 ![](images/image29.png)
 
-Voltamos alguns diretórios utilizando o cd .. e encontramos o home. Após acessarmos, achamos o second ingredient, ou seja, o segundo ingrediente que precisamos. Abrimos ele usando o comando cat e KATCHAU!! O segundo ingrediente.png é.png 1 jerry tear. Vamos salvar a informação - 1 jerry tear.
+Voltamos alguns diretórios utilizando o cd .. e encontramos o home. Após acessarmos, achamos o second ingredient, ou seja, o segundo ingrediente que precisamos. Abrimos ele usando o comando cat e KATCHAU!! O segundo ingrediente é 1 jerry tear. Vamos salvar a informação - 1 jerry tear.
 
 ![](images/image30.png)
 
@@ -166,15 +166,15 @@ Após olharmos, não tem nada, acho que nós teremos que olhar na parte do "/roo
 
 ![](images/image32.png)
 
-Opa, CHECK-MATE!! Podemos executar qualquer arquivo.png sem utilizar senha, ou seja, só precisamos conseguir o acesso de root usando sudo bash.
+Opa, CHECK-MATE!! Podemos executar qualquer arquivo sem utilizar senha, ou seja, só precisamos conseguir o acesso de root usando sudo bash.
 
 ![](images/image33.png)
 
-TOMA GAP! Conseguimos acesso de root.png, agora tudo que precisamos fazer é entrar dentro do diretório do root e procurarmos usando o ls. E então EUREKA! Conseguimos achar o 3º.png ingrediente. Usando o cat, nós vemos o conteúdo dele, e então com isso conseguimos acabar esse desafio. O 3º ingrediente é fleeb juice. Vamos guardar e colocar as respostas no TryHackMe e então finalmente iremos acabar esse desafio.
+TOMA GAP! Conseguimos acesso de root, agora tudo que precisamos fazer é entrar dentro do diretório do root e procurarmos usando o ls. E então EUREKA! Conseguimos achar o 3º ingrediente. Usando o cat, nós vemos o conteúdo dele, e então com isso conseguimos acabar esse desafio. O 3º ingrediente é fleeb juice. Vamos guardar e colocar as respostas no TryHackMe e então finalmente iremos acabar esse desafio.
 
 ![](images/image34.png)
 
 ![](images/image35.png)
 
-Agora, nós iremos no site e colocar as informações e então TOMA GAP! Conseguimos acabar o Desafio.png. Obrigado por verem até o final e espero que tenham absorvido alguma coisa e mais do que tudo se divertido.
+Agora, nós iremos no site e colocar as informações e então TOMA GAP! Conseguimos acabar o Desafio. Obrigado por lerem até o final e espero que tenham absorvido alguma coisa e mais do que tudo se divertido.
 
