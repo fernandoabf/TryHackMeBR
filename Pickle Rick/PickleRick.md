@@ -1,3 +1,5 @@
+# TryHackMe Pickle Rick
+
 Para começarmos, iremos nos conectar ao servidor VPN do TryHackMe usando o seguinte comando: sudo openvpn (diretório do arquivo). Caso esteja usando uma máquina virtual, pode pular este passo.
 
 ![](images/image1.png)
