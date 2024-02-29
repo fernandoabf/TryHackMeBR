@@ -1,6 +1,6 @@
 Para começarmos, iremos nos conectar ao servidor VPN do TryHackMe usando o seguinte comando: sudo openvpn (diretório do arquivo). Caso esteja usando uma máquina virtual, pode pular este passo.
 
-!(images/image1)
+![](images/image1)
 
 Primeiramente, iremos fazer um scan nas portas abertas do host alvo, ou seja, o IP que o TryHackMe nos proporciona.
 
