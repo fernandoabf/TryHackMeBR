@@ -159,13 +159,13 @@ No denied, não tinha nada demais.
 
 <figure><img src=".gitbook/assets/image17.png" alt=""><figcaption><p>image17</p></figcaption></figure>
 
-Agora, iremos voltar para a página de comandos, ele está rodando Linux, ou seja, ele pode executar comandos e abrir portas, ou seja, nós podemos fazer um reverse secure shell. Vamos utilizar esse terminal para abrir o caminho para dentro do sistema, mas primeiro vamos testar para ver se ele nos dá permissão para fazer isso.
+Agora, iremos voltar para a página de comandos, ele está rodando Linux, ou seja, ele pode executar comandos e abrir portas, ou seja, nós podemos fazer um Reverse Shell. Vamos utilizar esse terminal para abrir o caminho para dentro do sistema, mas primeiro vamos testar para ver se ele nos dá permissão para fazer isso.
 
 Após alguns testes, vemos que podemos usar o Python3 no terminal.
 
 <figure><img src=".gitbook/assets/image18.png" alt=""><figcaption><p>image18</p></figcaption></figure>
 
-**Então, vamos fazer um Reverse Shell, mas primeiro vamos ver o que é um Reverse  Shell.**
+**Então, vamos fazer um Reverse Shell, mas primeiro vamos ver o que é um Reverse Shell.**
 
 * O **Reverse Shell** é uma técnica onde o Atacante consegue estabelecer uma conexão de rede de saída, ou seja, o host que envia a conexão para o seu computador. Isso normalmente é utilizado quando o alvo está por trás de um firewall ou de outras medidas de segurança que bloqueiam conexões de entrada.
 
@@ -246,7 +246,8 @@ Estamos conectados com o servidor.&#x20;
 * **O ls** lista os arquivos e diretórios no diretório atual.
 * O **mkdir** cria um novo diretório. Por exemplo, mkdir documentos cria um diretório chamado "documentos".&#x20;
 * O **rmdir** remove um diretório vazio. Por exemplo, rmdir documentos remove o diretório "documentos", desde que esteja vazio.&#x20;
-* O **sudo** permite executar comandos com privilégios de superusuário. man: Exibe o manual de um comando. Por exemplo, man ls exibe o manual do comando "ls".&#x20;
+* O **sudo** permite executar comandos com privilégios de superusuário.&#x20;
+* man: Exibe o manual de um comando. Por exemplo, man ls exibe o manual do comando "ls".&#x20;
 * O **cp** copia arquivos ou diretórios. Por exemplo, cp arquivo.txt novo\_arquivo.txt copia o arquivo "arquivo.txt" para "novo\_arquivo.txt".&#x20;
 * O **mv** move arquivos ou diretórios. Por exemplo, mv arquivo.txt diretorio/ move o arquivo "arquivo.txt" para o diretório "diretorio/".&#x20;
 * O **clear** Limpa a tela do terminal.
@@ -276,6 +277,15 @@ No home, nós também encontramos outro diretório chamado "ubuntu". Vamos acess
 <figure><img src=".gitbook/assets/image31.png" alt=""><figcaption><p>imagem31</p></figcaption></figure>
 
 Após olharmos, não tem nada, acho que nós teremos que olhar na parte do "/root" para ver se ele salvou alguma informação lá, mas primeiro precisamos conseguir acesso de root. Vamos utilizar o comando sudo -l para vermos o que podemos executar sem comando de root.
+
+**Mas para que serve o sudo -l?**
+
+* O comando **sudo -l** é utilizado para listar os privilégios do usuário atual no sistema. Ele exibe as permissões que o usuário possui para executar comandos como superusuário (root) através do comando sudo.
+
+&#x20;**Agora o que é esse (ALL) NOPASSWD: ?**
+
+* O **NOPASSWD** indica quais comandos específicos o usuário tem permissão para executar como superusuário (root) sem a necessidade de inserir a senha.
+* O **(ALL) NOPASSWD** significa que o usuário pode executar qualquer comando especificado sem precisar fornecer sua senha.
 
 Opa, CHECK-MATE!! Podemos executar qualquer arquivo como root sem utilizar senha.
 
@@ -307,4 +317,4 @@ Agora, nós iremos no site e colocar as informações e então TOMA GAP! **Conse
 
 **Obrigado por lerem até o final e espero que tenham absorvido alguma coisa e mais do que tudo se divertido.**
 
-Caso tenha algum erro, algo para acrescentar mande ou alguma dica envie para o meu email: **retzgithub@gmail.com**
+Se você notar qualquer erro, tiver algo para acrescentar ou quiser compartilhar alguma dica ou feedback, por favor, envie para o meu email: **retzgithub@gmail.com**.
