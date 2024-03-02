@@ -20,7 +20,7 @@ Para começarmos, iremos nos conectar ao servidor VPN do TryHackMe usando o segu
 
 Primeiramente, iremos fazer um scan nas portas abertas do host alvo, ou seja, o IP que o TryHackMe nos proporciona.
 
-Utilizando o nmap, nós iremos fazer uma varredura nas portas até um determinado número que irei definir como 10000.0
+Utilizando o nmap, nós iremos fazer uma varredura nas portas até um determinado número que irei definir como 10000.
 
 **Mas primeiro para que o Nmap serve?**
 
